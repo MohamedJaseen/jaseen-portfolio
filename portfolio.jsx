@@ -153,7 +153,7 @@ function Navbar({ active, theme, toggleTheme }) {
                 >{l}</button>
               );
             })}
-            <a href="mailto:jaseen132219@gmail.com" style={{
+            <a href="mailto:mohamedjaseensoftdev@gmail.com" style={{
               marginLeft:10, padding:"7px 18px", borderRadius:7,
               border:"1px solid var(--accent)", color:"var(--accent)",
               textDecoration:"none", fontFamily:"'DM Mono',monospace", fontSize:12.5, transition:"all .25s",
@@ -241,7 +241,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={240}>
           <p style={{ fontFamily:"'Lora',serif", fontSize:"clamp(.95rem,1.5vw,1.1rem)", color:"var(--text-muted)", maxWidth:510, lineHeight:1.85, marginBottom:44 }}>
-            Building scalable backend systems, RESTful APIs, and intelligent web solutions that solve real-world problems through clean and efficient code.
+            Building scalable backend systems, RESTful APIs, and intelligent web solutions that turn real-world challenges into reliable software products.
           </p>
         </Reveal>
         <Reveal delay={320}>
@@ -272,7 +272,7 @@ function Hero() {
         {[
           { href:"https://www.linkedin.com/in/mohamed-jaseen-113ab6257", label:"LI", c:"#0ea5e9" },
           { href:"https://github.com/MohamedJaseen", label:"GH", c:"#a78bfa" },
-          { href:"mailto:jaseen132219@gmail.com", label:"@", c:"#00ff88" },
+          { href:"mailto:mohamedjaseensoftdev@gmail.com", label:"@", c:"#4f8cff" },
         ].map(s => (
           <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{
             width:38, height:38, borderRadius:8, background:"var(--glass-hover)", border:"1px solid var(--card-border)",
@@ -310,11 +310,20 @@ function About() {
           <div style={{ opacity: visible?1:0, transform: visible?"translateX(0)":"translateX(-40px)", transition:"all .8s ease" }}>
             <SL text="About Me" />
             <H2>Crafting Code<br /><span style={{ color:"#00ff88" }}>with Purpose</span></H2>
-            <p style={{ fontFamily:"'Lora',serif", fontSize:"1rem", color:"var(--text-muted)", lineHeight:1.88, margin:"26px 0 32px" }}>
-              Motivated IT student with hands-on experience in full-stack web development, backend engineering, and machine learning. Passionate about building scalable applications that solve real-world problems.
+            <p style={{ fontFamily:"'Lora',serif", fontSize:"1rem", color:"var(--text-muted)", lineHeight:1.88, margin:"26px 0 16px" }}>
+              Motivated IT student with hands-on experience in backend development, REST APIs, database design, and AI-driven applications. I enjoy building practical software that is scalable, reliable, and focused on real-world impact.
             </p>
+            <div style={{ display:"flex", flexWrap:"wrap", gap:10, marginBottom:24 }}>
+              {[
+                { label:"Backend Development" },
+                { label:"REST APIs" },
+                { label:"Machine Learning" },
+              ].map(item => (
+                <span key={item.label} style={{ padding:"8px 12px", borderRadius:999, background:"var(--accent-bg)", border:"1px solid var(--accent)", color:"var(--accent)", fontFamily:"'DM Mono',monospace", fontSize:11, letterSpacing:1.2, textTransform:"uppercase" }}>{item.label}</span>
+              ))}
+            </div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:12 }}>
-              <StatCard val={3} suffix="+" label="Projects" visible={visible} />
+              <StatCard val={4} suffix="+" label="Projects" visible={visible} />
               <StatCard val={2} suffix="+" label="Internships" visible={visible} />
               <StatCard val={91} suffix="%" label="SSLC Score" visible={visible} />
             </div>
@@ -353,14 +362,14 @@ function About() {
 }
 
 /* ── Skills ── */
-function SkillBar({ name, icon }) {
+function SkillBar({ name }) {
   return (
     <div style={{ padding:"16px 20px", borderRadius:12, background:"var(--glass-bg)", border:"1px solid var(--card-border)", transition:"all .3s", cursor:"default" }}
       onMouseEnter={e => { e.currentTarget.style.background="var(--accent-bg)"; e.currentTarget.style.borderColor="var(--focus-ring)"; e.currentTarget.style.transform="translateY(-4px)"; e.currentTarget.style.boxShadow="0 14px 32px var(--accent-bg)"; }}
       onMouseLeave={e => { e.currentTarget.style.background="var(--glass-bg)"; e.currentTarget.style.borderColor="var(--glass-border)"; e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="none"; }}>
-      <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-        <span style={{ fontSize:18 }}>{icon}</span>
+      <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", gap:10 }}>
         <span style={{ fontFamily:"'DM Mono',monospace", fontSize:13, color:"var(--text-muted)" }}>{name}</span>
+        <span style={{ width:8, height:8, borderRadius:"50%", background:"var(--accent)", opacity:.9 }} />
       </div>
     </div>
   );
@@ -482,13 +491,15 @@ function ProjCard({ p, i }) {
               <span key={t} style={{ padding:"4px 11px", borderRadius:5, background:`${p.color}14`, border:`1px solid ${p.color}28`, fontFamily:"'DM Mono',monospace", fontSize:11, color:p.color }}>{t}</span>
             ))}
           </div>
-          <div style={{ display:"flex", gap:10 }}>
-            <a href={p.demo} target="_blank" rel="noopener noreferrer" style={{ flex:1, padding:"11px 0", borderRadius:9, textAlign:"center", background:p.color, color:"var(--bg-color)", fontFamily:"'DM Mono',monospace", fontSize:12, fontWeight:700, letterSpacing:.8, textDecoration:"none", transition:"opacity .2s" }}
+          <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
+            <a href={p.demo} target="_blank" rel="noopener noreferrer" style={{ flex: p.github ? 1 : "0 0 auto", padding:"11px 16px", borderRadius:9, textAlign:"center", background:p.color, color:"var(--bg-color)", fontFamily:"'DM Mono',monospace", fontSize:12, fontWeight:700, letterSpacing:.8, textDecoration:"none", transition:"opacity .2s" }}
               onMouseEnter={e => e.currentTarget.style.opacity=".82"}
               onMouseLeave={e => e.currentTarget.style.opacity="1"}>Live Demo ↗</a>
-            <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ flex:1, padding:"11px 0", borderRadius:9, textAlign:"center", background:"transparent", color:"var(--text-muted)", border:"1px solid var(--btn-border)", fontFamily:"'DM Mono',monospace", fontSize:12, textDecoration:"none", transition:"all .2s" }}
-              onMouseEnter={e => { e.currentTarget.style.color="var(--text-main)"; e.currentTarget.style.borderColor=p.color; }}
-              onMouseLeave={e => { e.currentTarget.style.color="var(--text-muted)"; e.currentTarget.style.borderColor="var(--btn-border)"; }}>GitHub ↗</a>
+            {p.github ? (
+              <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ flex:1, padding:"11px 0", borderRadius:9, textAlign:"center", background:"transparent", color:"var(--text-muted)", border:"1px solid var(--btn-border)", fontFamily:"'DM Mono',monospace", fontSize:12, textDecoration:"none", transition:"all .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.color="var(--text-main)"; e.currentTarget.style.borderColor=p.color; }}
+                onMouseLeave={e => { e.currentTarget.style.color="var(--text-muted)"; e.currentTarget.style.borderColor="var(--btn-border)"; }}>GitHub ↗</a>
+            ) : null}
           </div>
         </div>
       </div>
@@ -541,7 +552,7 @@ function Education() {
               <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:20, fontWeight:700, color:"var(--text-main)", marginBottom:8 }}>B.S Abdur Rahman Crescent Institute</h3>
               <p style={{ fontFamily:"'DM Mono',monospace", fontSize:12, color:"var(--text-muted-heavy)", marginBottom:20 }}>Bachelor of Information Technology · Vandalur, Chennai</p>
               <div style={{ display:"flex", gap:16, alignItems:"center" }}>
-                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:32, fontWeight:700, color:"#00ff88" }}>7.68</span>
+                <span style={{ fontFamily:"'Playfair Display',serif", fontSize:32, fontWeight:700, color:"#00ff88" }}>7.70</span>
                 <div>
                   <div style={{ fontFamily:"'DM Mono',monospace", fontSize:10, color:"var(--text-muted-heavy)", letterSpacing:2 }}>CGPA</div>
                   <div style={{ fontFamily:"'DM Mono',monospace", fontSize:10, color:"var(--text-muted-heavy)" }}>2022 – 2026</div>
@@ -577,7 +588,7 @@ function Education() {
               <div key={i} style={{ padding:"20px 24px", borderRadius:12, background:"var(--glass-bg)", border:"1px solid var(--glass-border)", display:"flex", alignItems:"center", gap:14, flex:"1 1 230px", transition:"all .3s", cursor:"default" }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor=`${c.color}45`; e.currentTarget.style.background=`${c.color}09`; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor="var(--card-border)"; e.currentTarget.style.background="var(--glass-bg)"; }}>
-                <span style={{ fontSize:26 }}>{c.icon}</span>
+                <div style={{ width:10, height:10, borderRadius:"50%", background:c.color, flexShrink:0 }} />
                 <div>
                   <div style={{ fontFamily:"'Lora',serif", fontSize:14.5, color:"var(--text-main)", marginBottom:3 }}>{c.name}</div>
                   <div style={{ fontFamily:"'DM Mono',monospace", fontSize:11, color:"var(--text-muted-heavy)" }}>{c.org}</div>
@@ -630,22 +641,21 @@ function Contact() {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formsubmit.co/ajax/mohamedjaseensoftdev@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // IMPORTANT: Get your free key from web3forms.com
+        headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" },
+        body: new URLSearchParams({
           name: form.name,
           email: form.email,
-          message: form.message
-        })
+          message: form.message,
+          _subject: "Portfolio Contact Form Submission"
+        }).toString()
       });
-      const data = await res.json();
-      if (data.success) {
+      if (res.ok) {
         setSent(true);
         setForm({ name:"", email:"", message:"" });
       } else {
-        setError(data.message || "Something went wrong. Please try again.");
+        setError("Unable to send message right now. Please email me directly.");
       }
     } catch (err) {
       setError("Network error. Please try again later.");
@@ -660,7 +670,7 @@ function Contact() {
             <SL text="Get In Touch" />
             <H2>Let's Work <span style={{ color:"#00ff88" }}>Together</span></H2>
             <p style={{ fontFamily:"'Lora',serif", color:"var(--text-muted-heavy)", maxWidth:440, margin:"20px auto 0", lineHeight:1.82, fontSize:"1rem" }}>
-              Open to backend roles, internships, and collaborative projects. Reach out anytime.
+              Open to backend, AI, and collaborative opportunities. I’d be glad to connect for internships, projects, or full-time roles.
             </p>
           </div>
         </Reveal>
@@ -668,7 +678,7 @@ function Contact() {
           <Reveal>
             <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
               {[
-                { icon:"✉️", label:"Email", value:"jaseen132219@gmail.com", href:"mailto:jaseen132219@gmail.com", c:"#00ff88" },
+                { icon:"✉️", label:"Email", value:"mohamedjaseensoftdev@gmail.com", href:"mailto:mohamedjaseensoftdev@gmail.com", c:"#4f8cff" },
                 { icon:"📞", label:"Phone", value:"+91 9345414821", href:"tel:+919345414821", c:"#ec4899" },
                 { icon:"💼", label:"LinkedIn", value:"Mohamed Jaseen", href:"https://www.linkedin.com/in/mohamed-jaseen-113ab6257", c:"#0ea5e9" },
                 { icon:"🐙", label:"GitHub", value:"MohamedJaseen", href:"https://github.com/MohamedJaseen", c:"#a78bfa" },
