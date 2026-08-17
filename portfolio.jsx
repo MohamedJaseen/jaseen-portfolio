@@ -55,10 +55,10 @@ export default function Portfolio() {
   };
 
   const downloadResume = () => {
-    // Download resume docx file
+    // Download resume PDF file
     const link = document.createElement("a");
-    link.href = "/jaseen_softdev_resume.docx";
-    link.download = "Mohamed_Jaseen_Resume.docx";
+    link.href = "/Mohamed_Jaseen_Resume.pdf";
+    link.download = "Mohamed_Jaseen_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
