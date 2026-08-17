@@ -334,13 +334,16 @@ export default function Portfolio() {
 
                 {/* Download Resume Button */}
                 <div>
-                  <button
-                    onClick={downloadResume}
+                  <a
+                    href="/Mohamed_Jaseen_Resume.pdf"
+                    download="Mohamed_Jaseen_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glow-btn-green px-6 py-3 rounded-xl inline-flex items-center gap-2.5 text-sm font-bold cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download Resume</span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
